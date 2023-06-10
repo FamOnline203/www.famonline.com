@@ -1,0 +1,679 @@
+
+<html>
+  <head>
+    <!-- Title Icon -->
+    <title>Famonline-Home</title> <link rel = "icon" href = 
+    "https://i.ibb.co/84TDN6P/icon-1.png" 
+            type = "image/x-icon">
+  </head>
+<!-- Styles.css -->
+<style>
+
+  @import url('https://fonts.googleapis.com/css?family=Exo:400,700');
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.logo {
+    animation: neon 15s ease-in-out infinite alternate;
+  }
+  
+  @keyframes neon {
+    0% { text-shadow: 0 0 5px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de; }
+    100% { text-shadow: 0 0 5px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de; }
+  }
+  
+body {
+  margin: 0;
+  font-family: 'Exo', sans-serif;
+  background-color: #d156e1;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ffa200; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #bb7a0a; 
+}
+
+marquee{
+  font-size: 30px;
+  font-weight: 800;
+  color: #840697;
+  font-family: sans-serif;
+  }
+
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #2b1d2d;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #3498db;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 90px;
+  font-size: 50px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+header {
+  background-color: #000000;
+  color: #c300ff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.animated-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000000;
+  transition: top 0.3s ease-in-out;
+  /* Add other styling properties as needed */
+  z-index: 999; /* Set a higher value to bring the header in front */
+  /* Add other styling properties as needed */
+
+}
+.animated-header.hidden {
+  top: -100px; /* Adjust the value based on the height of your header */
+}
+
+.animated-footer {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 500px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 10px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: #3498db;
+}
+
+/* Caption text */
+.text {
+  color: #3498db;
+  font-size: 60px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 10px;
+  width: 10px;
+  margin: 0 2px;
+  background-color: #fbac01;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #3498db;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 2s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+nav li {
+  margin-right: 20px;
+}
+nav li:last-child {
+  margin-right: 0;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+main {
+  padding: 20px;
+  display: flex;
+}
+.animated-button {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border-radius: 20px; /* Rounded corners */
+}
+
+.animated-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  opacity: 0.3;
+  transition: all 0.3s ease;
+  border-radius: 20px; /* Rounded corners */
+}
+
+.animated-button:hover {
+  background-color: #ff00ff;
+  color: #fff;
+}
+
+.animated-button:hover::before {
+  left: 0;
+}
+
+
+/* Position the table in the top-right corner */
+table {
+  position: absolute;
+  top: 70;
+  left: 05;
+  background-color: #030303;
+  border-radius: 10px;
+    border: 2px solid #000000;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    width: 300px;
+}
+caption {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  background-color: #236725;
+  border-radius: 10px;
+}
+ /* Style the table headers */
+ th {
+  background-color: #236725;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 8px;
+}
+
+/* Style the table cells */
+td {
+  border: 1px solid #107915;
+  padding: 8px;
+}
+
+/* Style the alternate rows */
+tr:nth-child(even) {
+  background-color: #000000;
+}
+section {
+  margin-right: 40px;
+}
+section:last-child {
+  margin-right: 0;
+}
+
+
+  /* Dark Theme */
+  body.dark-theme {
+    background-color: #24072c;
+    color: #f0f0f0;
+  }
+  
+  .theme-switch {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 9999;
+  }
+  
+  .theme-switch label {
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: #f0f0f0;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .theme-switch label:after {
+    content: '';
+    display: block;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: left 0.3s ease;
+  }
+  
+  .theme-switch input[type="checkbox"] {
+    display: none;
+  }
+  
+  .theme-switch input[type="checkbox"]:checked + label {
+    background-color: #333;
+  }
+  
+  .theme-switch input[type="checkbox"]:checked + label:after {
+    left: calc(100% - 28px);
+  }
+
+.theme-switch {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+/* Rest of the CSS code remains the same */
+
+
+footer {
+  background-color: #000000;
+  color: #7b00ff;
+  padding: 20px;
+  text-align: center;
+}
+
+
+
+
+
+
+
+img {
+  --g: 4px;     /* the gap */
+  --b: 12px;    /* border thickness*/
+  --c: #3498db; /* the color */
+  
+  
+  padding: calc(var(--g) + var(--b));
+  --_c: #0000 0 25%, var(--c) 0 50%;
+  --_g1: repeating-linear-gradient(90deg ,var(--_c)) repeat-x;
+  --_g2: repeating-linear-gradient(180deg,var(--_c)) repeat-y;
+  background:
+    var(--_g1) var(--_p, 25%) 0   ,var(--_g2) 0    var(--_p,125%),
+    var(--_g1) var(--_p,125%) 100%,var(--_g2) 100% var(--_p, 25%);
+  background-size: 200% var(--b),var(--b) 200%;
+  cursor: pointer;
+  filter: grayscale(50%);
+  transition: .3s;
+}
+img:hover {
+  --_p: 75%;
+  filter: grayscale(0%);
+}
+</style>
+
+
+<!-- LOGO -->
+
+  <body class="dark">
+    <header class="animated-header">
+      <h1 ><a href="index.html" class="logo" style="text-decoration: none;">Fam Online</a></h1>
+
+
+      <script>
+        const logo = document.querySelector('.logo');
+      const rgbColors = ['red', 'green', 'blue'];
+      let currentColorIndex = 0;
+      
+      function changeColor() {
+        logo.style.color = rgbColors[currentColorIndex];
+        currentColorIndex = (currentColorIndex + 1) % rgbColors.length;
+      }
+      
+      setInterval(changeColor, 1000);
+      </script>
+      
+      
+      
+<!-- Menu -->
+
+      <nav>
+        <ul>
+          <li><a href="index.html" style="color: #fff; text-decoration: none;">Home</a></li>
+          <li><a href="movies.html" style="color: #fff; text-decoration: none;">Movies</a></li>
+          <li><a href="games.html" style="color: #fff; text-decoration: none;">Games</a></li>
+          <li><a href="softwares.html" style="color: #fff; text-decoration: none;">Softwares</a></li>
+          <li><a href="livetv.html" style="color: #fff; text-decoration: none;">Live TV</a></li>
+          <li><a href="e-book.html" style="color: #fff; text-decoration: none;">E-Books</a></li>
+        </ul>
+      </nav>
+      
+   
+<!-- SideBar -->
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <h1 align="center">Genries</h1>
+  <!-- Theme Selector -->
+  <div class="theme-switch">
+    <input type="checkbox" id="theme-toggle" />
+    <label for="theme-toggle"></label>
+  </div>
+      
+      <!-- Theme Script -->
+      <script>const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        
+        themeToggle.addEventListener('change', function() {
+          body.classList.toggle('dark-theme');
+        });</script>
+  <li><a href="index.html" style=" text-decoration: none;" class="logo">Home</a></li>
+          <li><a href="movies.html" style="text-decoration: none;" class="logo">Movies</a></li>
+          <li><a href="games.html" style=" text-decoration: none;" class="logo">Games</a></li>
+          <li><a href="softwares.html" style=" text-decoration: none;" class="logo">Softwares</a></li>
+          <li><a href="livetv.html" style=" text-decoration: none;" class="logo">Live TV</a></li>
+          <li><a href="e-book.html" style=" text-decoration: none;" class="logo">E-Books</a></li>
+</div>
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script> 
+<div></div>
+<!-- header Script -->
+<script>const header = document.querySelector('.animated-header');
+  let lastScrollPosition = 0;
+  
+  window.addEventListener('scroll', () => {
+    const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+  
+    if (currentScrollPosition > lastScrollPosition) {
+      header.classList.add('hidden');
+    } else {
+      header.classList.remove('hidden');
+    }
+  
+    lastScrollPosition = currentScrollPosition;
+  });
+  </script>
+
+    </header>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- Scrolling Text -->
+    <marquee scrollamount="14">
+      Here you can browse for your favourite movies, games, softwares, e-books etc. So, stay connected with us forever.
+      If you want to request any files to us then tell us without any kinds of hagitasion. Thanks for visit here.</marquee>
+<!-- Live Pusher -->
+    <div class="slideshow-container">
+
+      <div class="mySlides fade">
+        <div class="numbertext">1 / 4</div>
+        <a href="movies.html">
+        <img src="https://i.ibb.co/zRB1c7s/boo.png" style="width:100%"></a>
+        <div class="text">Movies</div>
+      </div>
+      
+      <div class="mySlides fade">
+        <div class="numbertext">2 / 4</div>
+        <a href="games.html">
+        <img src="https://i.ibb.co/zRB1c7s/boo.png" style="width:100%"></a>
+        <div class="text">Games</div>
+      </div>
+      
+      <div class="mySlides fade">
+        <div class="numbertext">3 / 4</div>
+        <a href="softwares.html">
+        <img src="https://i.ibb.co/zRB1c7s/boo.png" style="width:100%"></a>
+        <div class="text">Softwares</div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="numbertext">4 / 4</div>
+        <a href="livetv.html">
+        <img src="https://i.ibb.co/zRB1c7s/boo.png" style="width:100%">
+      </a>
+        <div class="text">TV Channels</div>
+      </div>
+      
+      <a class="prev" onclick="plusSlides(-1)">❮</a>
+      <a class="next" onclick="plusSlides(1)">❯</a>
+      
+      </div>
+      <br>
+      
+      <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span> 
+      </div>
+      
+      <script>
+      let slideIndex = 1;
+      showSlides(slideIndex);
+      
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+      
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
+      
+      function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}    
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";  
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";  
+        dots[slideIndex-1].className += " active";
+      }
+      </script>
+ 
+ <main>
+  <section><a class="button" href="www.famonline.com\index.html" aria-label="Back To Previous">
+    <span>Home</span></a></section>
+    <section>
+  <h2>Google Chrome</h2></section>
+</main>
+<main>
+  <section>
+    <a href="www.famonline.com\index.html">
+      <img src="www.famonline.com\Images\soft1.jfif" alt="Description of the image" height="480" width="640">
+    </a>        
+  </section>
+  <main>
+    <section><a class="button" href="www.famonline.com\index.html" aria-label="Download">
+      <span>Download Now</span></a></section>
+  </main>
+<main>
+  <table>
+    <caption>Details</caption>
+    <tr>
+      <th>Title</th>
+      <th>Boo</th>
+    </tr>
+    <tr>
+      <td>Year:</td>
+      <td>2023</td>
+    </tr>
+    <tr>
+      <td>Language:</td>
+      <td>Hindi</td>
+    </tr>
+  </table>
+</main>
+<main>
+  
+</main>
+<main>
+  
+</main>
+<main>
+  
+</main>
+<main>
+  
+</main>
+<main>
+  
+</main>
+<main>
+  
+</main>
+</main>
+<main>
+
+</main>
+<main>
+  </main>
+    <footer class="animated-footer">
+      &copy; 2023 Fahimur Rahman
+    </footer>
+  </body>
+</html>
+
+
